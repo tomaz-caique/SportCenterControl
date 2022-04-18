@@ -1,7 +1,11 @@
 
 package Models;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class Fornecedor {
@@ -11,11 +15,15 @@ public class Fornecedor {
     private String email;
     private Date contrato;
 
-    public Fornecedor(int id, String nome, String email, Date contrato) {
+    public Fornecedor(int id, String nome, String email, String contrato) {
         this.id = id;
         this.nome = nome;
         this.email = email;
-        this.contrato = contrato;
+        try {
+            this.contrato = new SimpleDateFormat("dd/MM/yyyy").parse(contrato);
+        } catch (ParseException ex) {
+            Logger.getLogger(Fornecedor.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public Fornecedor(int id, String nome, Date contrato) {
