@@ -35,7 +35,7 @@ public class Login extends javax.swing.JFrame {
                 jButtonLoginActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 490, 160, -1));
+        getContentPane().add(jButtonLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 480, 160, -1));
         getContentPane().add(textSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 430, 160, -1));
         getContentPane().add(textEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 360, 160, -1));
 
@@ -47,7 +47,7 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("EMAIL");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 320, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 320, -1, -1));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imgs/prototipo.jpg"))); // NOI18N
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));

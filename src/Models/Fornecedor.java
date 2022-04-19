@@ -20,7 +20,7 @@ public class Fornecedor {
         this.nome = nome;
         this.email = email;
         try {
-            this.contrato = new SimpleDateFormat("dd/MM/yyyy").parse(contrato);
+            this.contrato = new SimpleDateFormat("dd/MM/yyyy)").parse(contrato);
         } catch (ParseException ex) {
             Logger.getLogger(Fornecedor.class.getName()).log(Level.SEVERE, null, ex);
         }

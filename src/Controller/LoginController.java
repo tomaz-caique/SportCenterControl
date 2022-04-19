@@ -18,7 +18,7 @@ public class LoginController {
 
     public void entrarNoSistema(){
        Funcionario funcionario =  helper.obterModelo();
-         
+        
     }
     public void validar(){
         System.out.println("Buscou algo do banco");
