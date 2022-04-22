@@ -57,6 +57,7 @@ public class Login extends javax.swing.JFrame {
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
         this.controller.validar();
+        
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
     /**

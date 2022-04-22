@@ -5,6 +5,8 @@
 package View;
 
 import Dao.Conexao;
+import Dao.FuncionarioDAO;
+import Models.Funcionario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -41,7 +43,7 @@ public class Cadastro extends javax.swing.JFrame {
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        ButtonCadFun = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -80,10 +82,10 @@ public class Cadastro extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Cadastrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        ButtonCadFun.setText("Cadastrar");
+        ButtonCadFun.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                ButtonCadFunActionPerformed(evt);
             }
         });
 
@@ -105,7 +107,7 @@ public class Cadastro extends javax.swing.JFrame {
                 .addGap(256, 256, 256))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ButtonCadFun, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(178, 178, 178))
         );
 
@@ -129,7 +131,7 @@ public class Cadastro extends javax.swing.JFrame {
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 179, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ButtonCadFun, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14))
         );
 
@@ -343,22 +345,20 @@ public class Cadastro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void ButtonCadFunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCadFunActionPerformed
         try {
+            Funcionario funcionarioTest = new Funcionario("Caique", "Teste@gmail.com", "senha");
+            
             Connection conexao = new Conexao().getConnection();
-            
-            String sql = """
-                         INSERT INTO employee_login(ID_Employee, Employee_Name, Employee_Email, Employee_Password)
-                         VALUES (ID_Employee,'Fernando', 'jbelazi@hotmail.com', '03022003');""";
-            PreparedStatement statement = conexao.prepareStatement(sql);
-            statement.execute();
-            
-            conexao.close();
-            
+            FuncionarioDAO funcionarioDao = new FuncionarioDAO(conexao);
+            funcionarioDao.insert(funcionarioTest);
         } catch (SQLException ex) {
+
             Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
+
+           
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_ButtonCadFunActionPerformed
 
     private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
         // TODO add your handling code here:
@@ -424,7 +424,7 @@ public class Cadastro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton ButtonCadFun;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;

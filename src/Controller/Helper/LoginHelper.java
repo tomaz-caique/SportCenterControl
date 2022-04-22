@@ -18,7 +18,7 @@ public class LoginHelper {
     
         String email = view.getTextEmail().getText();
         String senha = view.getTextSenha().getText();
-        Funcionario modelo = new Funcionario(1,"Teste@gmail.com","123cc");  
+        Funcionario modelo = new Funcionario("Caique", "Test", "123");
         return modelo;
            }
     
