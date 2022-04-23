@@ -2,6 +2,9 @@
 package View;
 
 import Controller.LoginController;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -20,8 +23,8 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         jButtonLogin = new javax.swing.JButton();
-        textSenha = new javax.swing.JTextField();
-        textEmail = new javax.swing.JTextField();
+        jTextSenha = new javax.swing.JTextField();
+        jTextEmail = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
@@ -36,8 +39,8 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 480, 160, -1));
-        getContentPane().add(textSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 430, 160, -1));
-        getContentPane().add(textEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 360, 160, -1));
+        getContentPane().add(jTextSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 430, 160, -1));
+        getContentPane().add(jTextEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 360, 160, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -56,7 +59,11 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
-        this.controller.validar();
+        try {
+            this.controller.validar();
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
@@ -101,30 +108,30 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton jButtonLogin;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField textEmail;
-    private javax.swing.JTextField textSenha;
+    private javax.swing.JTextField jTextEmail;
+    private javax.swing.JTextField jTextSenha;
     // End of variables declaration//GEN-END:variables
 
 public void msg(String message) {
         JOptionPane.showMessageDialog(null, message);
     }
 
-    public JTextField getTextEmail() {
-        return textEmail;
+    public JTextField getjTextEmail() {
+        return jTextEmail;
     }
 
-    public void setTextEmail(JTextField textEmail) {
-        this.textEmail = textEmail;
+    public void setjTextEmail(JTextField jTextEmail) {
+        this.jTextEmail = jTextEmail;
     }
 
-
-    public JTextField getTextSenha() {
-        return textSenha;
+    public JTextField getjTextSenha() {
+        return jTextSenha;
     }
 
-    public void setTextSenha(JTextField textSenha) {
-        this.textSenha = textSenha;
+    public void setjTextSenha(JTextField jTextSenha) {
+        this.jTextSenha = jTextSenha;
     }
 
+  
 
 }

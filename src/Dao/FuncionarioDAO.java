@@ -23,7 +23,19 @@ public class FuncionarioDAO {
                     + " VALUES (ID_Employee,'"+ funcionario.getNome() +"', '"+funcionario.getEmail()+"', '"+funcionario.getSenha()+"');";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.execute(); 
-            connection.close();
 
+    }
+
+    public boolean AutenticarPorEmaileSenha(Funcionario funcionario) throws SQLException {
+        
+        String sql = "SELECT * FROM employee_login where Employee_Email = ? and Employee_Password = ? ";
+       PreparedStatement statement = connection.prepareStatement(sql);
+       
+       statement.setString(1,funcionario.getEmail());
+       statement.setString(2,funcionario.getSenha());
+       statement.execute(); 
+        
+       var resultSet =  statement.getResultSet();
+       return resultSet.next();
     }
 }
