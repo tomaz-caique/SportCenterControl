@@ -62,15 +62,15 @@
                       </Group>
                       <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextField4" linkSize="4" min="-2" pref="130" max="-2" attributes="0"/>
-                          <Component id="jTextField5" linkSize="4" alignment="0" min="-2" pref="74" max="-2" attributes="0"/>
-                          <Component id="jTextField6" linkSize="4" alignment="0" min="-2" pref="74" max="-2" attributes="0"/>
+                          <Component id="jTextNomeFun" linkSize="4" min="-2" pref="130" max="-2" attributes="0"/>
+                          <Component id="jTextEmailFun" linkSize="4" alignment="0" min="-2" pref="74" max="-2" attributes="0"/>
+                          <Component id="jTextSenhaFun" linkSize="4" alignment="0" min="-2" pref="74" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="256" pref="256" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" pref="220" max="-2" attributes="0"/>
+                      <Component id="ButtonCadFun" min="-2" pref="220" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="178" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -80,21 +80,21 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jTextField4" linkSize="5" min="-2" pref="39" max="-2" attributes="0"/>
+                          <Component id="jTextNomeFun" linkSize="5" min="-2" pref="39" max="-2" attributes="0"/>
                           <Component id="jLabel1" linkSize="2" pref="39" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jTextField5" linkSize="5" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextEmailFun" linkSize="5" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel2" linkSize="2" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel3" linkSize="2" min="-2" pref="31" max="-2" attributes="0"/>
-                          <Component id="jTextField6" linkSize="5" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextSenhaFun" linkSize="5" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="179" max="32767" attributes="0"/>
-                      <Component id="jButton1" min="-2" pref="42" max="-2" attributes="0"/>
+                      <Component id="ButtonCadFun" min="-2" pref="42" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -125,21 +125,21 @@
                 <Property name="text" type="java.lang.String" value="Senha"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField4">
+            <Component class="javax.swing.JTextField" name="jTextNomeFun">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField4ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextNomeFunActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField5">
+            <Component class="javax.swing.JTextField" name="jTextEmailFun">
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField6">
+            <Component class="javax.swing.JTextField" name="jTextSenhaFun">
             </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="ButtonCadFun">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cadastrar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonCadFunActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -168,16 +168,16 @@
                       </Group>
                       <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextField7" linkSize="16" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
-                          <Component id="jTextField8" linkSize="16" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
-                          <Component id="jTextField9" linkSize="16" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
-                          <Component id="jTextField10" linkSize="16" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
+                          <Component id="jTextNomeFor" linkSize="16" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
+                          <Component id="jTextEmailFor" linkSize="16" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
+                          <Component id="jTextTelFor" linkSize="16" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
+                          <Component id="jTextContratoFun" linkSize="16" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="256" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton2" min="-2" pref="220" max="-2" attributes="0"/>
+                      <Component id="ButtonCadFor" min="-2" pref="220" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="178" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -187,26 +187,26 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jTextField7" linkSize="17" alignment="1" min="-2" pref="45" max="-2" attributes="0"/>
+                          <Component id="jTextNomeFor" linkSize="17" alignment="1" min="-2" pref="45" max="-2" attributes="0"/>
                           <Component id="jLabel4" alignment="1" min="-2" pref="42" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jTextField8" linkSize="17" alignment="1" min="-2" pref="45" max="-2" attributes="0"/>
+                          <Component id="jTextEmailFor" linkSize="17" alignment="1" min="-2" pref="45" max="-2" attributes="0"/>
                           <Component id="jLabel5" alignment="1" min="-2" pref="42" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jTextField9" linkSize="17" pref="41" max="32767" attributes="0"/>
+                          <Component id="jTextTelFor" linkSize="17" pref="41" max="32767" attributes="0"/>
                           <Component id="jLabel6" min="-2" pref="38" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jTextField10" linkSize="17" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextContratoFun" linkSize="17" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="83" max="32767" attributes="0"/>
-                      <Component id="jButton2" min="-2" pref="42" max="-2" attributes="0"/>
+                      <Component id="ButtonCadFor" min="-2" pref="42" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -237,21 +237,21 @@
                 <Property name="text" type="java.lang.String" value="Telefone"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField7">
+            <Component class="javax.swing.JTextField" name="jTextNomeFor">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField7ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextNomeForActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField8">
+            <Component class="javax.swing.JTextField" name="jTextEmailFor">
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField9">
+            <Component class="javax.swing.JTextField" name="jTextTelFor">
             </Component>
-            <Component class="javax.swing.JButton" name="jButton2">
+            <Component class="javax.swing.JButton" name="ButtonCadFor">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cadastrar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonCadForActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel7">
@@ -262,7 +262,7 @@
                 <Property name="text" type="java.lang.String" value="Contrato"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField10">
+            <Component class="javax.swing.JTextField" name="jTextContratoFun">
               <Properties>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -326,7 +326,7 @@
                           <Component id="jTextField12" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                           <Component id="jLabel10" alignment="3" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="14" max="32767" attributes="0"/>
+                      <EmptySpace pref="22" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jTextField14" pref="39" max="32767" attributes="0"/>
                           <Component id="jLabel11" max="32767" attributes="0"/>
@@ -336,7 +336,7 @@
                           <Component id="jTextField15" min="-2" pref="39" max="-2" attributes="0"/>
                           <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel13" alignment="3" pref="40" max="32767" attributes="0"/>
                           <Component id="jTextField16" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
