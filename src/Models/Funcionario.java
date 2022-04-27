@@ -54,6 +54,4 @@ public class Funcionario {
         this.senha = senha;
     }
     
-    
-    
 }
