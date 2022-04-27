@@ -352,7 +352,7 @@ public class Cadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextNomeFunActionPerformed
 
     private void ButtonCadFunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCadFunActionPerformed
-        fController.salvarFuncionario();   
+        fController.salvarFuncionario(); 
     }//GEN-LAST:event_ButtonCadFunActionPerformed
 
     private void jTextNomeForActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextNomeForActionPerformed
