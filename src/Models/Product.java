@@ -1,14 +1,14 @@
 
 package Models;
 
-public class Produto {
+public class Product {
     
     private int id;
     private String nome;
     private int quantidade;
     private String categoria;
 
-    public Produto(int id, String nome, int quantidade, String categoria) {
+    public Product(int id, String nome, int quantidade, String categoria) {
         this.id = id;
         this.nome = nome;
         this.quantidade = quantidade;
