@@ -5,21 +5,21 @@ package Models;
 public class Employee {
     
     private int id;
-    private String nome;
+    private String name;
     private String email;
-    private String senha;
+    private String password;
 
     public Employee(int id, String nome, String email, String senha) {
         this.id = id;
-        this.nome = nome;
+        this.name = nome;
         this.email = email;
-        this.senha = senha;
+        this.password = senha;
     }
 
     public Employee(int id, String email, String senha) {
         this.id = id;
         this.email = email;
-        this.senha = senha;
+        this.password = senha;
     }
 
     public int getId() {
@@ -30,12 +30,12 @@ public class Employee {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -46,12 +46,12 @@ public class Employee {
         this.email = email;
     }
 
-    public String getSenha() {
-        return senha;
+    public String getPassword() {
+        return password;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setPassword(String password) {
+        this.password = password;
     }
     
     

@@ -7,21 +7,21 @@ import java.util.Date;
 public class Provider {
     
     private int id;
-    private String nome;
+    private String name;
     private String email;
-    private Date contrato;
+    private Date contract;
 
-    public Provider(int id, String nome, String email, Date contrato) {
+    public Provider(int id, String name, String email, Date contract) {
         this.id = id;
-        this.nome = nome;
+        this.name = name;
         this.email = email;
-        this.contrato = contrato;
+        this.contract = contract;
     }
 
-    public Provider(int id, String nome, Date contrato) {
+    public Provider(int id, String name, Date contract) {
         this.id = id;
-        this.nome = nome;
-        this.contrato = contrato;
+        this.name = name;
+        this.contract = contract;
     }
 
     public int getId() {
@@ -32,12 +32,12 @@ public class Provider {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -48,12 +48,12 @@ public class Provider {
         this.email = email;
     }
 
-    public Date getContrato() {
-        return contrato;
+    public Date getContract() {
+        return contract;
     }
 
-    public void setContrato(Date contrato) {
-        this.contrato = contrato;
+    public void setContract(Date contract) {
+        this.contract = contract;
     }
     
     

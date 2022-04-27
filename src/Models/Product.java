@@ -4,15 +4,15 @@ package Models;
 public class Product {
     
     private int id;
-    private String nome;
-    private int quantidade;
-    private String categoria;
+    private String name;
+    private int amount;
+    private String category;
 
     public Product(int id, String nome, int quantidade, String categoria) {
         this.id = id;
-        this.nome = nome;
-        this.quantidade = quantidade;
-        this.categoria = categoria;
+        this.name = nome;
+        this.amount = quantidade;
+        this.category = categoria;
     }
 
     public int getId() {
@@ -23,28 +23,28 @@ public class Product {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getQuantidade() {
-        return quantidade;
+    public int getAmount() {
+        return amount;
     }
 
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 
-    public String getCategoria() {
-        return categoria;
+    public String getCategory() {
+        return category;
     }
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
+    public void setCategory(String category) {
+        this.category = category;
     }
     
     
