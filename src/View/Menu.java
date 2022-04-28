@@ -4,6 +4,10 @@
  */
 package View;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Caique
@@ -28,7 +32,7 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenuCadastro = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jCadFun = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
@@ -37,17 +41,17 @@ public class Menu extends javax.swing.JFrame {
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jMenuCadastro.setText("Cadastrar");
 
-        jMenuItem1.setText("Funcionario");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jCadFun.setText("Funcionario");
+        jCadFun.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                jCadFunActionPerformed(evt);
             }
         });
-        jMenuCadastro.add(jMenuItem1);
+        jMenuCadastro.add(jCadFun);
 
         jMenuItem3.setText("Fornecedor");
         jMenuCadastro.add(jMenuItem3);
@@ -94,12 +98,19 @@ public class Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    private void jCadFunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCadFunActionPerformed
+        Cadastro cadastro = new Cadastro();
+        cadastro.setVisible(true);
+                
+    }//GEN-LAST:event_jCadFunActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        // TODO add your handling code here:
+        try {
+            Consulta consulta = new Consulta();
+            consulta.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
@@ -138,11 +149,11 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem jCadFun;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenu jMenuCadastro;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;

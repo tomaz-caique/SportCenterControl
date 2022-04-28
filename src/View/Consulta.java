@@ -1,20 +1,25 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package View;
 
-/**
- *
- * @author Caique
- */
+import Controller.FunConsultaController;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JTable;
+
+
+
+
 public class Consulta extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Cadastro
-     */
-    public Consulta() {
+    private final FunConsultaController fcontroller;
+
+    
+    
+    public Consulta() throws SQLException {
         initComponents();
+        fcontroller = new FunConsultaController(this);
+        iniciar();
     }
 
     /**
@@ -29,7 +34,7 @@ public class Consulta extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableFuncionario = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
@@ -37,25 +42,22 @@ public class Consulta extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableFuncionario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Nome", "Email"
             }
         ));
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTableFuncionario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
+                jTableFuncionarioMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTableFuncionario);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -157,9 +159,9 @@ public class Consulta extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTable1MouseClicked
+    private void jTableFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableFuncionarioMouseClicked
+        
+    }//GEN-LAST:event_jTableFuncionarioMouseClicked
 
     /**
      * @param args the command line arguments
@@ -192,7 +194,11 @@ public class Consulta extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Consulta().setVisible(true);
+                try {
+                    new Consulta().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Consulta.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -205,8 +211,22 @@ public class Consulta extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
+    private javax.swing.JTable jTableFuncionario;
     // End of variables declaration//GEN-END:variables
+
+    private void iniciar() throws SQLException {
+     this.fcontroller.atualizaTabela();
+    }
+
+    public JTable getjTableFuncionario() {
+        return jTableFuncionario;
+    }
+
+    public void setjTableFuncionario(JTable jTableFuncionario) {
+        this.jTableFuncionario = jTableFuncionario;
+    }
+    
+    
 }
