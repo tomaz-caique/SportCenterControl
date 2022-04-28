@@ -15,6 +15,14 @@ public class Funcionario {
         this.senha = senha;
     }
 
+    public Funcionario(int id, String nome, String email, String senha) {
+        this.id = id;
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+    }
+
+  
     public Funcionario(String email, String senha) {
         this.email = email;
         this.senha = senha;
@@ -51,5 +59,7 @@ public class Funcionario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-
+    
+    
+    
 }
