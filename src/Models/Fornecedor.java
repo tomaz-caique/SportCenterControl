@@ -1,7 +1,11 @@
 
 package Models;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class Fornecedor {
@@ -9,20 +13,32 @@ public class Fornecedor {
     private int id;
     private String nome;
     private String email;
+    private String telefone;
     private Date contrato;
 
-    public Fornecedor(int id, String nome, String email, Date contrato) {
+    public Fornecedor(int id, String nome, String email, String contrato) {
         this.id = id;
         this.nome = nome;
         this.email = email;
-        this.contrato = contrato;
+        try {
+            this.contrato = new SimpleDateFormat("dd/MM/yyyy)").parse(contrato);
+        } catch (ParseException ex) {
+            Logger.getLogger(Fornecedor.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
-    public Fornecedor(int id, String nome, Date contrato) {
-        this.id = id;
+    public Fornecedor(String nome, String email,String telefone, String contrato) {
         this.nome = nome;
-        this.contrato = contrato;
+        this.email = email;
+        this.email = telefone;
+        try {
+            this.contrato = new SimpleDateFormat("dd/MM/yyyy)").parse(contrato);
+        } catch (ParseException ex) {
+            Logger.getLogger(Fornecedor.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
+
+   
 
     public int getId() {
         return id;
@@ -55,6 +71,13 @@ public class Fornecedor {
     public void setContrato(Date contrato) {
         this.contrato = contrato;
     }
-    
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
     
 }
