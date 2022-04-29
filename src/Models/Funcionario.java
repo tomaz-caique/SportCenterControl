@@ -9,6 +9,12 @@ public class Funcionario {
     private String email;
     private String senha;
 
+    public Funcionario(int id, String nome, String email) {
+        this.id = id;
+        this.nome = nome;
+        this.email = email;
+    }
+
     public Funcionario(String nome, String email, String senha) {
         this.nome = nome;
         this.email = email;

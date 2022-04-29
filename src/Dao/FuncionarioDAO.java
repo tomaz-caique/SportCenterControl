@@ -35,12 +35,11 @@ public class FuncionarioDAO {
     
     public void update(Funcionario funcionario) throws SQLException{
             
-            String sql = " update employee_login set (Employee_Name = ?, Employee_Email = ?, Employee_Password = ?, where id = ?)";
+            String sql = " update employee_login set (Employee_Name = ?, Employee_Email = ?,where id = ?)";
             PreparedStatement statement = connection.prepareStatement(sql);
               statement.setString(1,funcionario.getNome());
               statement.setString(2,funcionario.getEmail());
-              statement.setString(3,funcionario.getSenha());
-              statement.setInt(4,funcionario.getId());
+              statement.setInt(3,funcionario.getId());
             statement.execute(); 
 
     }
@@ -92,5 +91,7 @@ public class FuncionarioDAO {
        
         return pesquisaBanco(statement).get(0);
    }
+   
+   
    
 }

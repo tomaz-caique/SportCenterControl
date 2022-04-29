@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTable;
+//import javax.swing.table.DefaultTableModel;
 
 
 
@@ -13,7 +14,10 @@ import javax.swing.JTable;
 public class Consulta extends javax.swing.JFrame {
 
     private final FunConsultaController fcontroller;
-
+    
+        int id;
+        String nome;
+        String email;
     
     
     public Consulta() throws SQLException {
@@ -160,8 +164,53 @@ public class Consulta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTableFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableFuncionarioMouseClicked
-        
+        try {
+            fcontroller.carregaDados();
+//DefaultTableModel model = (DefaultTableModel) jTableFuncionario.getModel();
+           
+//        int selectedRowIndex = jTableFuncionario.getSelectedRow();
+//
+//
+//        
+//        id =   model.getValueAt(selectedRowIndex, 0).toString();
+//        nome = model.getValueAt(selectedRowIndex, 1).toString();
+//        email = model.getValueAt(selectedRowIndex, 2).toString();
+//
+//
+//        
+//      ConsultaFuncionario alterar = null;
+//        try {
+//
+//           
+//            alterar = new ConsultaFuncionario();
+//            alterar.jLabelID.setText("Id do usuario :" + id);
+//            alterar.jTextAlterarNomefun.setText(nome);
+//            alterar.jTextAlterarEmailFun.setText(email);
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Consulta.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//      alterar.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(Consulta.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jTableFuncionarioMouseClicked
+
+    
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     /**
      * @param args the command line arguments
