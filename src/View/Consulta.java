@@ -2,6 +2,7 @@
 package View;
 
 import Controller.FunConsultaController;
+import Models.Funcionario;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,9 +16,8 @@ public class Consulta extends javax.swing.JFrame {
 
     private final FunConsultaController fcontroller;
     
-        int id;
-        String nome;
-        String email;
+        String id;
+        
     
     
     public Consulta() throws SQLException {
@@ -196,21 +196,6 @@ public class Consulta extends javax.swing.JFrame {
     }//GEN-LAST:event_jTableFuncionarioMouseClicked
 
     
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     /**
      * @param args the command line arguments
