@@ -22,6 +22,8 @@ public class FuncionarioController {
     
     public void salvarFuncionario(){
             
+        
+
             String nome = view.getjTextNomeFun().getText();
             String email = view.getjTextEmailFun().getText();
             String senha = view.getjTextSenhaFun().getText();

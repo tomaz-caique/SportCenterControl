@@ -92,6 +92,6 @@ public class FuncionarioDAO {
         return pesquisaBanco(statement).get(0);
    }
    
-   0
+   
    
 }

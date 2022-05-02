@@ -48,16 +48,16 @@ public class FunConsultaController {
     
     public void carregaDados() throws SQLException{
     
-         DefaultTableModel model = (DefaultTableModel) view.getjTableFuncionario().getModel();
+        DefaultTableModel model = (DefaultTableModel) view.getjTableFuncionario().getModel();
         int selectedRowIndex = view.getjTableFuncionario().getSelectedRow();
         
-        String id =  model.getValueAt(selectedRowIndex, 0).toString();
+        String id =   model.getValueAt(selectedRowIndex, 0).toString();
         String nome = model.getValueAt(selectedRowIndex, 1).toString();
         String email = model.getValueAt(selectedRowIndex, 2).toString();
         
         
         ConsultaFuncionario consultafun = new ConsultaFuncionario();
-        consultafun.getjLabelConFun().setText(id);
+        consultafun.setIdConsulta(id);
         consultafun.getjTextAlterarNomefun().setText(nome);
         consultafun.getjTextAlterarEmailFun().setText(email);
         consultafun.setVisible(true);
@@ -69,12 +69,12 @@ public class FunConsultaController {
     public void alterarDados() throws SQLException{
         
         ConsultaFuncionario consultafun = new ConsultaFuncionario();
- 
-        String id = viewF.getjLabelConFun().getText();
+        String id = viewF.getIdConsulta();
+       // int id = viewF.getIdConsulta();
         String nome = viewF.getjTextAlterarNomefun().getText();
         String email = viewF.getjTextAlterarEmailFun().getText();
         int convertId = Integer.parseInt(id);
-        
+     
         var funcionario = new Funcionario( convertId, nome, email);
        
         try{
@@ -85,8 +85,8 @@ public class FunConsultaController {
         
         viewF.dispose();
         JOptionPane.showMessageDialog(null, "Alterado com sucesso");
-        atualizaTabela();
-        //atualizaTabela();
+        Consulta consulta = new Consulta();
+        consulta.setVisible(true);
         
         }
           catch(SQLException ex){  

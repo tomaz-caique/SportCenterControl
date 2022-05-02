@@ -14,7 +14,7 @@ import javax.swing.JTextField;
  * @author Caique
  */
 public class ConsultaFuncionario extends javax.swing.JFrame {
-
+String idConsulta;
      
      private final FunConsultaController fcontroller;
     /**
@@ -29,13 +29,6 @@ public class ConsultaFuncionario extends javax.swing.JFrame {
         
     }
 
-    public JLabel getjLabelConFun() {
-        return jLabelConFun;
-    }
-
-    public void setjLabelConFun(JLabel jLabelConFun) {
-        this.jLabelConFun = jLabelConFun;
-    }
 
    
     public JTextField getjTextAlterarEmailFun() {
@@ -54,6 +47,16 @@ public class ConsultaFuncionario extends javax.swing.JFrame {
         this.jTextAlterarNomefun = jTextAlterarNomefun;
     }
 
+    public String getIdConsulta() {
+        return idConsulta;
+    }
+
+    public void setIdConsulta(String idConsulta) {
+        this.idConsulta = idConsulta;
+    }
+
+   
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -65,7 +68,6 @@ public class ConsultaFuncionario extends javax.swing.JFrame {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
-        jLabelConFun = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTextAlterarNomefun = new javax.swing.JTextField();
         jTextAlterarEmailFun = new javax.swing.JTextField();
@@ -73,8 +75,6 @@ public class ConsultaFuncionario extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabelConFun.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         jLabel2.setText("Email");
@@ -115,8 +115,7 @@ public class ConsultaFuncionario extends javax.swing.JFrame {
                             .addComponent(jTextAlterarNomefun, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
                             .addComponent(jTextAlterarEmailFun)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabelConFun, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(112, 112, 112)
                         .addComponent(jLabelID, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(256, 256, 256))
         );
@@ -130,9 +129,7 @@ public class ConsultaFuncionario extends javax.swing.JFrame {
                         .addGap(35, 35, 35)
                         .addComponent(jTextAlterarNomefun, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabelConFun, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(68, 68, 68)
                         .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -219,7 +216,6 @@ public class ConsultaFuncionario extends javax.swing.JFrame {
     private javax.swing.JButton ButtonConFun;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabelConFun;
     protected final javax.swing.JLabel jLabelID = new javax.swing.JLabel();
     public javax.swing.JPanel jPanel1;
     private javax.swing.JTabbedPane jTabbedPane1;

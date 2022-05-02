@@ -16,7 +16,7 @@ public class Consulta extends javax.swing.JFrame {
 
     private final FunConsultaController fcontroller;
     
-        String id;
+        int id;
         
     
     
@@ -166,6 +166,7 @@ public class Consulta extends javax.swing.JFrame {
     private void jTableFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableFuncionarioMouseClicked
         try {
             fcontroller.carregaDados();
+            this.dispose();
 //DefaultTableModel model = (DefaultTableModel) jTableFuncionario.getModel();
            
 //        int selectedRowIndex = jTableFuncionario.getSelectedRow();
