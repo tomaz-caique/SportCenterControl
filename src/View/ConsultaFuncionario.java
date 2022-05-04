@@ -3,6 +3,7 @@ package View;
 
 
 import Controller.FunConsultaController;
+import Dao.FuncionarioDAO;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -165,6 +166,7 @@ String idConsulta;
     }//GEN-LAST:event_ButtonConFunActionPerformed
 
     private void jTextAlterarNomefunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextAlterarNomefunActionPerformed
+   
                     
     }//GEN-LAST:event_jTextAlterarNomefunActionPerformed
 

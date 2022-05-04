@@ -2,8 +2,13 @@
 package View;
 
 import Controller.FunConsultaController;
+import Controller.Helper.FunConsultaHelper;
+import Dao.Conexao;
+import Dao.FuncionarioDAO;
 import Models.Funcionario;
+import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTable;
@@ -39,6 +44,7 @@ public class Consulta extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableFuncionario = new javax.swing.JTable();
+        jTextConsulta = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
@@ -47,6 +53,13 @@ public class Consulta extends javax.swing.JFrame {
         jTable3 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                formInputMethodTextChanged(evt);
+            }
+        });
 
         jTableFuncionario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -63,20 +76,33 @@ public class Consulta extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTableFuncionario);
 
+        jTextConsulta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jTextConsulta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextConsulta.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextConsulta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextConsultaKeyReleased(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 611, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 611, Short.MAX_VALUE)
+                    .addComponent(jTextConsulta))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 441, Short.MAX_VALUE)
+                .addComponent(jTextConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 482, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -108,7 +134,7 @@ public class Consulta extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 441, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 519, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -140,7 +166,7 @@ public class Consulta extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 441, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 519, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -196,9 +222,46 @@ public class Consulta extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTableFuncionarioMouseClicked
 
+    private void jTextConsultaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextConsultaKeyReleased
+        
+        char teste;
+        teste = evt.getKeyChar();
+        String charToString = String.valueOf(teste);
+        if ( charToString.length() == 0 || charToString == null){
+            try {
+                iniciar();
+            } catch (SQLException ex) {
+                Logger.getLogger(Consulta.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else {
+        Connection conexao = null;
+        try {
+            conexao = new Conexao().getConnection();
+        } catch (SQLException ex) {
+            Logger.getLogger(Consulta.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            FuncionarioDAO funcionarioDao = new FuncionarioDAO(conexao);
+            
+        try {
+            ArrayList<Funcionario> funcionarios = funcionarioDao.SelecionaPorNome(charToString);
+            FunConsultaHelper consulta = new FunConsultaHelper(this);
+           consulta.preencherTabela(funcionarios);
+           charToString = "";
+        } catch (SQLException ex) {
+            Logger.getLogger(Consulta.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                }
+    }//GEN-LAST:event_jTextConsultaKeyReleased
+
+    private void formInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_formInputMethodTextChanged
+   
+        
+    }//GEN-LAST:event_formInputMethodTextChanged
+
     
 
-    /**
+    /**evt
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -249,6 +312,7 @@ public class Consulta extends javax.swing.JFrame {
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTableFuncionario;
+    private javax.swing.JTextField jTextConsulta;
     // End of variables declaration//GEN-END:variables
 
     private void iniciar() throws SQLException {

@@ -4,6 +4,8 @@ package Dao;
 import Models.Funcionario;
 import View.Cadastro;
 import com.mysql.cj.protocol.Resultset;
+import java.awt.Cursor;
+import java.lang.reflect.Array;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,6 +17,7 @@ import java.util.logging.Logger;
 public class FuncionarioDAO {
     
     private final Connection connection;
+    String nomeTest = "";
 
     public FuncionarioDAO(Connection connection) {
         this.connection = connection;
@@ -93,5 +96,33 @@ public class FuncionarioDAO {
    }
    
    
+    public ArrayList<Funcionario> SelecionaPorNome(String nomeC) throws SQLException{
+         String nomeb = nomeC;
+         if (nomeb.length() > 0){
+         nomeb = nomeb + nomeC;}
+         else {
+        String test = ("%" + nomeb + "%");
+        String sql = "SELECT * FROM Employee_Login where Employee_Name LIKE '"+test+"'";
+       PreparedStatement statement;
+        statement = connection.prepareStatement(sql);
+      //  Cursor cursor = get
+         statement.execute();
+         ArrayList<Funcionario> funcionarios = new ArrayList<>();
+        ResultSet resultSet = statement.getResultSet();
+         while(resultSet.next()){
+            
+            int id = resultSet.getInt("ID_Employee");
+            String nome = resultSet.getString("Employee_Name");
+            String email = resultSet.getString("Employee_Email");
+            String senha = resultSet.getString("Employee_Password");
+            
+            Funcionario funcionarioDados = new Funcionario(id ,nome, email, senha);
+            funcionarios.add(funcionarioDados);
+            
+         }
+            return funcionarios; 
+         }
+         return null;
+    }
    
 }

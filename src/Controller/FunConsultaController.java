@@ -68,9 +68,8 @@ public class FunConsultaController {
     
     public void alterarDados() throws SQLException{
         
-        ConsultaFuncionario consultafun = new ConsultaFuncionario();
+
         String id = viewF.getIdConsulta();
-       // int id = viewF.getIdConsulta();
         String nome = viewF.getjTextAlterarNomefun().getText();
         String email = viewF.getjTextAlterarEmailFun().getText();
         int convertId = Integer.parseInt(id);

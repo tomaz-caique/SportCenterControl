@@ -28,6 +28,7 @@ public class Funcionario {
         this.senha = senha;
     }
 
+
   
     public Funcionario(String email, String senha) {
         this.email = email;

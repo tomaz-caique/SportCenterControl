@@ -44,22 +44,7 @@ public class FunConsultaHelper {
           
     } 
     
-    public void puxarDados(){
-    
-         DefaultTableModel model = (DefaultTableModel) view.getjTableFuncionario().getModel();
-        int selectedRowIndex = view.getjTableFuncionario().getSelectedRow();
-        
-         var id = (int) model.getValueAt(selectedRowIndex, 0);
-         String nome = model.getValueAt(selectedRowIndex, 1).toString();
-         String email = model.getValueAt(selectedRowIndex, 2).toString();
-         
-         id = idFun; 
-         
-         
-         
-    }
-    
-
+   
 }
 
  
