@@ -97,11 +97,7 @@ public class FuncionarioDAO {
    
    
     public ArrayList<Funcionario> SelecionaPorNome(String nomeC) throws SQLException{
-         String nomeb = nomeC;
-         if (nomeb.length() > 0){
-         nomeb = nomeb + nomeC;}
-         else {
-        String test = ("%" + nomeb + "%");
+        String test = ("%" + nomeC + "%");
         String sql = "SELECT * FROM Employee_Login where Employee_Name LIKE '"+test+"'";
        PreparedStatement statement;
         statement = connection.prepareStatement(sql);
@@ -122,7 +118,5 @@ public class FuncionarioDAO {
          }
             return funcionarios; 
          }
-         return null;
     }
    
-}

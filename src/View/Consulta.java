@@ -1,35 +1,36 @@
-
 package View;
+
 
 import Controller.FunConsultaController;
 import Controller.Helper.FunConsultaHelper;
 import Dao.Conexao;
 import Dao.FuncionarioDAO;
 import Models.Funcionario;
+import java.awt.TextField;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.text.Element;
 //import javax.swing.table.DefaultTableModel;
-
-
-
 
 public class Consulta extends javax.swing.JFrame {
 
     private final FunConsultaController fcontroller;
-    
-        int id;
-        
-    
-    
+
+    int id;
+
     public Consulta() throws SQLException {
         initComponents();
         fcontroller = new FunConsultaController(this);
         iniciar();
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -80,6 +81,9 @@ public class Consulta extends javax.swing.JFrame {
         jTextConsulta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextConsulta.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jTextConsulta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextConsultaKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextConsultaKeyReleased(evt);
             }
@@ -194,7 +198,7 @@ public class Consulta extends javax.swing.JFrame {
             fcontroller.carregaDados();
             this.dispose();
 //DefaultTableModel model = (DefaultTableModel) jTableFuncionario.getModel();
-           
+
 //        int selectedRowIndex = jTableFuncionario.getSelectedRow();
 //
 //
@@ -221,47 +225,129 @@ public class Consulta extends javax.swing.JFrame {
             Logger.getLogger(Consulta.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jTableFuncionarioMouseClicked
-
+//////
     private void jTextConsultaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextConsultaKeyReleased
-        
-        char teste;
-        teste = evt.getKeyChar();
-        String charToString = String.valueOf(teste);
-        if ( charToString.length() == 0 || charToString == null){
-            try {
-                iniciar();
-            } catch (SQLException ex) {
-                Logger.getLogger(Consulta.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        else {
-        Connection conexao = null;
-        try {
-            conexao = new Conexao().getConnection();
-        } catch (SQLException ex) {
-            Logger.getLogger(Consulta.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            FuncionarioDAO funcionarioDao = new FuncionarioDAO(conexao);
+     
             
-        try {
-            ArrayList<Funcionario> funcionarios = funcionarioDao.SelecionaPorNome(charToString);
-            FunConsultaHelper consulta = new FunConsultaHelper(this);
-           consulta.preencherTabela(funcionarios);
-           charToString = "";
-        } catch (SQLException ex) {
-            Logger.getLogger(Consulta.class.getName()).log(Level.SEVERE, null, ex);
-        }
-                }
+         
+           
+            //jTextConsulta.getDocument().addDocumentListener(documentListener);
+        
+       
+            
+//        char teste;
+//        teste = evt.getKeyChar();
+//        String charToString = String.valueOf(teste);
+//        if (charToString.length() == 0 || charToString == null) {
+//            try {
+//                iniciar();
+//            } catch (SQLException ex) {
+//                Logger.getLogger(Consulta.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        } else {
+//            Connection conexao = null;
+//            try {
+//                conexao = new Conexao().getConnection();
+//            } catch (SQLException ex) {
+//                Logger.getLogger(Consulta.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//            FuncionarioDAO funcionarioDao = new FuncionarioDAO(conexao);
+//
+//            try {
+//                ArrayList<Funcionario> funcionarios = funcionarioDao.SelecionaPorNome(charToString);
+//                FunConsultaHelper consulta = new FunConsultaHelper(this);
+//                consulta.preencherTabela(funcionarios);
+//                charToString = "";
+//            } catch (SQLException ex) {
+//                Logger.getLogger(Consulta.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
     }//GEN-LAST:event_jTextConsultaKeyReleased
 
     private void formInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_formInputMethodTextChanged
-   
+    
+        //TextConsulta.
         
     }//GEN-LAST:event_formInputMethodTextChanged
 
-    
+    private void jTextConsultaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextConsultaKeyPressed
+           
+        jTextConsulta.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                String texto = (jTextConsulta.getText());
+                if (texto != ""){
+                 onTextChange(texto);
+                } else 
+                 try {
+                     onTextNull();
+                } catch (SQLException ex) {
+                    Logger.getLogger(Consulta.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+              String texto = (jTextConsulta.getText());
+                if (texto != ""){
+                 onTextChange(texto);
+                } else 
+                 try {
+                     onTextNull();
+                } catch (SQLException ex) {
+                    Logger.getLogger(Consulta.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+               
+                
+            }
+            private void onTextChange(String texto) {
+                fcontroller.ProcurarPorNome(texto);
+                
+            }
 
-    /**evt
+             private void onTextNull() throws SQLException {
+                   fcontroller.atualizaTabela();
+             }
+            
+        });
+    }//GEN-LAST:event_jTextConsultaKeyPressed
+    
+    private void test(){
+    
+        jTextConsulta.getDocument().addDocumentListener(new DocumentListener() {
+            private Element elem;
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                e.getChange(elem);
+               String teste =  elem.toString();
+                System.out.println(teste);
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                 System.out.println("Remove");
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                 System.out.println("update"); 
+                 
+            }
+        });
+        {
+    
+    }
+    
+    
+    }
+  
+    /**
+     * evt
+     *
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -315,8 +401,10 @@ public class Consulta extends javax.swing.JFrame {
     private javax.swing.JTextField jTextConsulta;
     // End of variables declaration//GEN-END:variables
 
+    
+    
     private void iniciar() throws SQLException {
-     this.fcontroller.atualizaTabela();
+        this.fcontroller.atualizaTabela();
     }
 
     public JTable getjTableFuncionario() {
@@ -326,6 +414,5 @@ public class Consulta extends javax.swing.JFrame {
     public void setjTableFuncionario(JTable jTableFuncionario) {
         this.jTableFuncionario = jTableFuncionario;
     }
-    
-    
+
 }

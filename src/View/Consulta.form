@@ -112,9 +112,6 @@
                   <Color id="Text Cursor"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextConsultaKeyReleased"/>
-              </Events>
             </Component>
           </SubComponents>
         </Container>

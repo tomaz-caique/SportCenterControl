@@ -15,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.View;
 
 public class FunConsultaController {
     
@@ -92,6 +93,25 @@ public class FunConsultaController {
                 
               System.out.println("ERRO");
              
-             }   
+             }  
+        
+        
     }
+    
+    public void ProcurarPorNome(String texto){
+        
+            try {
+                   Connection conexao = new Conexao().getConnection();
+                    FuncionarioDAO funcionarioDao = new FuncionarioDAO(conexao);
+                    
+                    ArrayList<Funcionario> funcionarios = funcionarioDao.SelecionaPorNome(texto);
+                    FunConsultaHelper funConsuHelper = new FunConsultaHelper(view);
+                    funConsuHelper.preencherTabela(funcionarios);
+                    
+                } catch (SQLException ex) {
+                    Logger.getLogger(Consulta.class.getName()).log(Level.SEVERE, null, ex);
+                }
+    
+    }
+    
 }
