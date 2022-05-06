@@ -118,5 +118,17 @@ public class FuncionarioDAO {
          }
             return funcionarios; 
          }
+         
+    
+      public void delete(Funcionario funcionario) throws SQLException{
+            
+            String sql = "DELETE FROM employee_login WHERE ID_Employee = ?;";
+            PreparedStatement statement = connection.prepareStatement(sql);
+              statement.setInt(1,funcionario.getId());
+              statement.execute(); 
+
+    }
+         
+    
     }
    

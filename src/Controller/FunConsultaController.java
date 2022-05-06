@@ -114,4 +114,42 @@ public class FunConsultaController {
     
     }
     
+     public void deletarFuncionario() throws SQLException{
+        
+
+        String id = viewF.getIdConsulta();
+        int convertId = Integer.parseInt(id);
+     
+        var funcionario = new Funcionario(convertId);
+        
+         
+        int dialogButton = JOptionPane.showConfirmDialog(null, "Tem certeza que quer excluir ?"); 
+        if (dialogButton == JOptionPane.YES_OPTION) 
+        {
+        try{
+        Connection conexao = new Conexao().getConnection();
+        FuncionarioDAO funcionarioDAO = new FuncionarioDAO(conexao);
+        funcionarioDAO.delete(funcionario);
+       
+        viewF.dispose();
+        JOptionPane.showMessageDialog(null, "Deletado com sucesso");
+        Consulta consulta = new Consulta();
+        consulta.setVisible(true);
+        
+        }
+          catch(SQLException ex){  
+                
+              System.out.println("ERRO");
+             
+             }  
+        
+        }
+        else {
+            
+        }
+        
+       
+    }
+     
+    
 }
