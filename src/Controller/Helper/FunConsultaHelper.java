@@ -10,6 +10,15 @@ import javax.swing.table.DefaultTableModel;
 public class FunConsultaHelper {
     
     private final Consulta view;
+    private  int idFun;
+
+    public int getIdFun() {
+        return idFun;
+    }
+
+    public void setIdFun(int idFun) {
+        this.idFun = idFun;
+    }
 
     public FunConsultaHelper(Consulta view) {
         this.view = view;
@@ -29,9 +38,13 @@ public class FunConsultaHelper {
             funcionario.getEmail(),
             
         });
-                    
+          
+   
         }
-    }
+          
+    } 
+    
+   
 }
 
  

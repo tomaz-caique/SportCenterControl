@@ -4,6 +4,8 @@ package Dao;
 import Models.Funcionario;
 import View.Cadastro;
 import com.mysql.cj.protocol.Resultset;
+import java.awt.Cursor;
+import java.lang.reflect.Array;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,6 +17,7 @@ import java.util.logging.Logger;
 public class FuncionarioDAO {
     
     private final Connection connection;
+    String nomeTest = "";
 
     public FuncionarioDAO(Connection connection) {
         this.connection = connection;
@@ -35,13 +38,12 @@ public class FuncionarioDAO {
     
     public void update(Funcionario funcionario) throws SQLException{
             
-            String sql = " update employee_login set (Employee_Name = ?, Employee_Email = ?, Employee_Password = ?, where id = ?)";
+            String sql = "UPDATE employee_login SET Employee_Name = ?, Employee_Email = ? WHERE ID_Employee = ?;";
             PreparedStatement statement = connection.prepareStatement(sql);
               statement.setString(1,funcionario.getNome());
               statement.setString(2,funcionario.getEmail());
-              statement.setString(3,funcionario.getSenha());
-              statement.setInt(4,funcionario.getId());
-            statement.execute(); 
+              statement.setInt(3,funcionario.getId());
+              statement.execute(); 
 
     }
     public boolean AutenticarPorEmaileSenha(Funcionario funcionario) throws SQLException {
@@ -93,4 +95,40 @@ public class FuncionarioDAO {
         return pesquisaBanco(statement).get(0);
    }
    
-}
+   
+    public ArrayList<Funcionario> SelecionaPorNome(String nomeC) throws SQLException{
+        String test = ("%" + nomeC + "%");
+        String sql = "SELECT * FROM Employee_Login where Employee_Name LIKE '"+test+"'";
+       PreparedStatement statement;
+        statement = connection.prepareStatement(sql);
+      //  Cursor cursor = get
+         statement.execute();
+         ArrayList<Funcionario> funcionarios = new ArrayList<>();
+        ResultSet resultSet = statement.getResultSet();
+         while(resultSet.next()){
+            
+            int id = resultSet.getInt("ID_Employee");
+            String nome = resultSet.getString("Employee_Name");
+            String email = resultSet.getString("Employee_Email");
+            String senha = resultSet.getString("Employee_Password");
+            
+            Funcionario funcionarioDados = new Funcionario(id ,nome, email, senha);
+            funcionarios.add(funcionarioDados);
+            
+         }
+            return funcionarios; 
+         }
+         
+    
+      public void delete(Funcionario funcionario) throws SQLException{
+            
+            String sql = "DELETE FROM employee_login WHERE ID_Employee = ?;";
+            PreparedStatement statement = connection.prepareStatement(sql);
+              statement.setInt(1,funcionario.getId());
+              statement.execute(); 
+
+    }
+         
+    
+    }
+   
