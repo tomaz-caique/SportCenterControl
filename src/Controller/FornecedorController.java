@@ -27,7 +27,7 @@ public class FornecedorController {
             String telefone = view.getjTextTelFor().getText();
             String contrato = view.getjTextContratoFun().getText();
                 
-            Fornecedor fornecedor = new Fornecedor(nome, email, telefone, contrato);
+            Fornecedor fornecedor = new Fornecedor(nome, email, contrato, telefone);
             try {
      
             

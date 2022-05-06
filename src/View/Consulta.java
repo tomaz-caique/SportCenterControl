@@ -1,6 +1,7 @@
 package View;
 
 
+import Controller.ForConsultaController;
 import Controller.FunConsultaController;
 import Controller.Helper.FunConsultaHelper;
 import Dao.Conexao;
@@ -22,12 +23,13 @@ import javax.swing.text.Element;
 public class Consulta extends javax.swing.JFrame {
 
     private final FunConsultaController fcontroller;
-
+    private final ForConsultaController forcontroller;
     int id;
 
     public Consulta() throws SQLException {
         initComponents();
         fcontroller = new FunConsultaController(this);
+        forcontroller = new ForConsultaController(this);
         iniciar();
     }
 
@@ -48,7 +50,7 @@ public class Consulta extends javax.swing.JFrame {
         jTextConsulta = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jTableFornecedor = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
@@ -80,14 +82,6 @@ public class Consulta extends javax.swing.JFrame {
         jTextConsulta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jTextConsulta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextConsulta.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jTextConsulta.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextConsultaKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextConsultaKeyReleased(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -112,18 +106,18 @@ public class Consulta extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Funcionario", jPanel1);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jTableFornecedor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID ", "Nome", "Email", "Contrato", "Telefone"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(jTableFornecedor);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -315,35 +309,16 @@ public class Consulta extends javax.swing.JFrame {
             
         });
     }//GEN-LAST:event_jTextConsultaKeyPressed
-    
-    private void test(){
-    
-        jTextConsulta.getDocument().addDocumentListener(new DocumentListener() {
-            private Element elem;
-            @Override
-            public void insertUpdate(DocumentEvent e) {
-                e.getChange(elem);
-               String teste =  elem.toString();
-                System.out.println(teste);
-            }
 
-            @Override
-            public void removeUpdate(DocumentEvent e) {
-                 System.out.println("Remove");
-            }
+    public JTable getjTableFornecedor() {
+        return jTableFornecedor;
+    }
 
-            @Override
-            public void changedUpdate(DocumentEvent e) {
-                 System.out.println("update"); 
-                 
-            }
-        });
-        {
-    
+    public void setjTableFornecedor(JTable jTableFornecedor) {
+        this.jTableFornecedor = jTableFornecedor;
     }
     
     
-    }
   
     /**
      * evt
@@ -395,8 +370,8 @@ public class Consulta extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
+    private javax.swing.JTable jTableFornecedor;
     private javax.swing.JTable jTableFuncionario;
     private javax.swing.JTextField jTextConsulta;
     // End of variables declaration//GEN-END:variables
@@ -405,6 +380,7 @@ public class Consulta extends javax.swing.JFrame {
     
     private void iniciar() throws SQLException {
         this.fcontroller.atualizaTabela();
+        this.forcontroller.atualizaTabela();
     }
 
     public JTable getjTableFuncionario() {

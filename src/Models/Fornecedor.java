@@ -13,32 +13,33 @@ public class Fornecedor {
     private int id;
     private String nome;
     private String email;
+    private String contrato;
     private String telefone;
-    private Date contrato;
-
+    
+    
     public Fornecedor(int id, String nome, String email, String contrato) {
         this.id = id;
         this.nome = nome;
         this.email = email;
-        try {
-            this.contrato = new SimpleDateFormat("dd/MM/yyyy)").parse(contrato);
-        } catch (ParseException ex) {
-            Logger.getLogger(Fornecedor.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        this.contrato = contrato;
     }
 
-    public Fornecedor(String nome, String email,String telefone, String contrato) {
+    public Fornecedor(String nome, String email,String contrato , String telefone) {
         this.nome = nome;
         this.email = email;
         this.email = telefone;
-        try {
-            this.contrato = new SimpleDateFormat("dd/MM/yyyy)").parse(contrato);
-        } catch (ParseException ex) {
-            Logger.getLogger(Fornecedor.class.getName()).log(Level.SEVERE, null, ex);
-        }
+         this.contrato = contrato;
     }
 
-   
+    public Fornecedor(int id, String nome, String email, String contrato , String telefone) {
+        this.id = id;
+        this.nome = nome;
+        this.email = email;
+        this.telefone = telefone;
+        this.contrato = contrato;
+    }
+
+    
 
     public int getId() {
         return id;
@@ -64,13 +65,15 @@ public class Fornecedor {
         this.email = email;
     }
 
-    public Date getContrato() {
+    public String getContrato() {
         return contrato;
     }
 
-    public void setContrato(Date contrato) {
+    public void setContrato(String contrato) {
         this.contrato = contrato;
     }
+
+   
 
     public String getTelefone() {
         return telefone;

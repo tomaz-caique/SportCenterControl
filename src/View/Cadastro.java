@@ -4,6 +4,7 @@
  */
 package View;
 
+import Controller.FornecedorController;
 import Controller.FuncionarioController;
 import Dao.Conexao;
 import Dao.FuncionarioDAO;
@@ -23,13 +24,14 @@ import javax.swing.JTextField;
 public class Cadastro extends javax.swing.JFrame {
 
     private final FuncionarioController fController;
-
+    private final FornecedorController forController;
     /**
      * Creates new form Cadastro
      */
     public Cadastro() {
         initComponents();
         fController = new FuncionarioController(this);
+        forController = new FornecedorController(this);
     }
 
     /**
@@ -59,7 +61,7 @@ public class Cadastro extends javax.swing.JFrame {
         jTextTelFor = new javax.swing.JTextField();
         ButtonCadFor = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jTextContratoFun = new javax.swing.JTextField();
+        jTextContratoFor = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jTextField12 = new javax.swing.JTextField();
@@ -172,8 +174,8 @@ public class Cadastro extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         jLabel7.setText("Contrato");
 
-        jTextContratoFun.setToolTipText("");
-        jTextContratoFun.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextContratoFor.setToolTipText("");
+        jTextContratoFor.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -192,7 +194,7 @@ public class Cadastro extends javax.swing.JFrame {
                     .addComponent(jTextNomeFor, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextEmailFor, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextTelFor, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextContratoFun, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextContratoFor, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(256, 256, 256))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
@@ -202,7 +204,7 @@ public class Cadastro extends javax.swing.JFrame {
 
         jPanel4Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel4, jLabel5, jLabel6, jLabel7});
 
-        jPanel4Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jTextContratoFun, jTextEmailFor, jTextNomeFor, jTextTelFor});
+        jPanel4Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jTextContratoFor, jTextEmailFor, jTextNomeFor, jTextTelFor});
 
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,14 +223,14 @@ public class Cadastro extends javax.swing.JFrame {
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextContratoFun, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextContratoFor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
                 .addComponent(ButtonCadFor, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(17, 17, 17))
         );
 
-        jPanel4Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jTextContratoFun, jTextEmailFor, jTextNomeFor, jTextTelFor});
+        jPanel4Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jTextContratoFor, jTextEmailFor, jTextNomeFor, jTextTelFor});
 
         jTabbedPane1.addTab("Fornecedor", jPanel4);
 
@@ -356,11 +358,11 @@ public class Cadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonCadFunActionPerformed
 
     private void jTextNomeForActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextNomeForActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_jTextNomeForActionPerformed
 
     private void ButtonCadForActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCadForActionPerformed
-        // TODO add your handling code here:
+        forController.SalvarFornecedor();
     }//GEN-LAST:event_ButtonCadForActionPerformed
 
     private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
@@ -443,11 +445,11 @@ public class Cadastro extends javax.swing.JFrame {
     }
 
     public JTextField getjTextContratoFun() {
-        return jTextContratoFun;
+        return jTextContratoFor;
     }
 
     public void setjTextContratoFun(JTextField jTextContratoFun) {
-        this.jTextContratoFun = jTextContratoFun;
+        this.jTextContratoFor = jTextContratoFun;
     }
 
     public JTextField getjTextEmailFor() {
@@ -496,7 +498,7 @@ public class Cadastro extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextContratoFun;
+    private javax.swing.JTextField jTextContratoFor;
     private javax.swing.JTextField jTextEmailFor;
     private javax.swing.JTextField jTextEmailFun;
     private javax.swing.JTextField jTextField12;
