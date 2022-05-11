@@ -7,6 +7,7 @@ import Dao.Conexao;
 import Dao.FuncionarioDAO;
 import Models.Funcionario;
 import View.Consulta;
+import View.ConsultaFornecedor;
 import View.ConsultaFuncionario;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -33,6 +34,10 @@ public class FunConsultaController {
 
     public FunConsultaController(ConsultaFuncionario viewF) {
         this.viewF = viewF;
+    }
+
+    public FunConsultaController(ConsultaFornecedor aThis) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     

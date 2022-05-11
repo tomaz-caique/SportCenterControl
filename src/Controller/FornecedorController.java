@@ -24,15 +24,15 @@ public class FornecedorController {
         
             String nome = view.getjTextNomeFor().getText();
             String email = view.getjTextEmailFor().getText();
-            String telefone = view.getjTextTelFor().getText();
+            String telefone = view.getjTextTelefoneFor().getText();
             String contrato = view.getjTextContratoFun().getText();
                 
-            Fornecedor fornecedor = new Fornecedor(nome, email, contrato, telefone);
+            Fornecedor fornecedor = new Fornecedor(nome, email, telefone, contrato);
             try {
      
             
             Connection conexao = new Conexao().getConnection();
-              FornecedorDAO fornecedorDao = new FornecedorDAO(conexao);
+             FornecedorDAO fornecedorDao = new FornecedorDAO(conexao);
             fornecedorDao.insert(fornecedor);
             
             JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");

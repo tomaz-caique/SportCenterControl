@@ -3,21 +3,12 @@ package View;
 
 import Controller.ForConsultaController;
 import Controller.FunConsultaController;
-import Controller.Helper.FunConsultaHelper;
-import Dao.Conexao;
-import Dao.FuncionarioDAO;
-import Models.Funcionario;
-import java.awt.TextField;
-import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-import javax.swing.text.Element;
 //import javax.swing.table.DefaultTableModel;
 
 public class Consulta extends javax.swing.JFrame {
@@ -47,10 +38,11 @@ public class Consulta extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableFuncionario = new javax.swing.JTable();
-        jTextConsulta = new javax.swing.JTextField();
+        jTextConsultaFun = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableFornecedor = new javax.swing.JTable();
+        jTextConsultaFor = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
@@ -79,9 +71,19 @@ public class Consulta extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTableFuncionario);
 
-        jTextConsulta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jTextConsulta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextConsulta.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextConsultaFun.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jTextConsultaFun.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextConsultaFun.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextConsultaFun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextConsultaFunActionPerformed(evt);
+            }
+        });
+        jTextConsultaFun.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextConsultaFunKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -91,14 +93,14 @@ public class Consulta extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 611, Short.MAX_VALUE)
-                    .addComponent(jTextConsulta))
+                    .addComponent(jTextConsultaFun))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(jTextConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextConsultaFun, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 482, Short.MAX_VALUE)
                 .addContainerGap())
@@ -114,10 +116,24 @@ public class Consulta extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "ID ", "Nome", "Email", "Contrato", "Telefone"
+                "ID ", "Nome", "Email", "Telefone", "Contrato"
             }
         ));
+        jTableFornecedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableFornecedorMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTableFornecedor);
+
+        jTextConsultaFor.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jTextConsultaFor.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextConsultaFor.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextConsultaFor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextConsultaForKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -125,14 +141,18 @@ public class Consulta extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 611, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 611, Short.MAX_VALUE)
+                    .addComponent(jTextConsultaFor))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 519, Short.MAX_VALUE)
+                .addGap(20, 20, 20)
+                .addComponent(jTextConsultaFor, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -260,16 +280,16 @@ public class Consulta extends javax.swing.JFrame {
 
     private void formInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_formInputMethodTextChanged
     
-        //TextConsulta.
+
         
     }//GEN-LAST:event_formInputMethodTextChanged
 
-    private void jTextConsultaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextConsultaKeyPressed
+    private void jTextConsultaFunKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextConsultaFunKeyPressed
            
-        jTextConsulta.getDocument().addDocumentListener(new DocumentListener() {
+        jTextConsultaFun.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-                String texto = (jTextConsulta.getText());
+                String texto = (jTextConsultaFun.getText());
                 if (texto != ""){
                  onTextChange(texto);
                 } else 
@@ -282,7 +302,7 @@ public class Consulta extends javax.swing.JFrame {
             
             @Override
             public void removeUpdate(DocumentEvent e) {
-              String texto = (jTextConsulta.getText());
+              String texto = (jTextConsultaFun.getText());
                 if (texto != ""){
                  onTextChange(texto);
                 } else 
@@ -308,7 +328,61 @@ public class Consulta extends javax.swing.JFrame {
              }
             
         });
-    }//GEN-LAST:event_jTextConsultaKeyPressed
+    }//GEN-LAST:event_jTextConsultaFunKeyPressed
+
+    private void jTableFornecedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableFornecedorMouseClicked
+       
+    }//GEN-LAST:event_jTableFornecedorMouseClicked
+
+    private void jTextConsultaForKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextConsultaForKeyPressed
+          
+        jTextConsultaFor.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                String texto = (jTextConsultaFor.getText());
+                if (texto != ""){
+                 onTextChange(texto);
+                } else 
+                 try {
+                     onTextNull();
+                } catch (SQLException ex) {
+                    Logger.getLogger(Consulta.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+              String texto = (jTextConsultaFor.getText());
+                if (texto != ""){
+                 onTextChange(texto);
+                } else 
+                 try {
+                     onTextNull();
+                } catch (SQLException ex) {
+                    Logger.getLogger(Consulta.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+               
+                
+            }
+            private void onTextChange(String texto) {
+                forcontroller.ProcurarPorNome(texto);
+                
+            }
+
+             private void onTextNull() throws SQLException {
+                   forcontroller.atualizaTabela();
+             }
+            
+        });
+    }//GEN-LAST:event_jTextConsultaForKeyPressed
+
+    private void jTextConsultaFunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextConsultaFunActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextConsultaFunActionPerformed
 
     public JTable getjTableFornecedor() {
         return jTableFornecedor;
@@ -373,7 +447,8 @@ public class Consulta extends javax.swing.JFrame {
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTableFornecedor;
     private javax.swing.JTable jTableFuncionario;
-    private javax.swing.JTextField jTextConsulta;
+    private javax.swing.JTextField jTextConsultaFor;
+    private javax.swing.JTextField jTextConsultaFun;
     // End of variables declaration//GEN-END:variables
 
     

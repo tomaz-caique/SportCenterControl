@@ -15,6 +15,10 @@ public class Fornecedor {
     private String email;
     private String contrato;
     private String telefone;
+
+    public Fornecedor(int id) {
+        this.id = id;
+    }
     
     
     public Fornecedor(int id, String nome, String email, String contrato) {
@@ -24,14 +28,14 @@ public class Fornecedor {
         this.contrato = contrato;
     }
 
-    public Fornecedor(String nome, String email,String contrato , String telefone) {
+    public Fornecedor(String nome, String email,String telefone ,String contrato) {
         this.nome = nome;
         this.email = email;
-        this.email = telefone;
+        this.telefone = telefone;
          this.contrato = contrato;
     }
 
-    public Fornecedor(int id, String nome, String email, String contrato , String telefone) {
+    public Fornecedor(int id, String nome, String email, String telefone, String contrato) {
         this.id = id;
         this.nome = nome;
         this.email = email;

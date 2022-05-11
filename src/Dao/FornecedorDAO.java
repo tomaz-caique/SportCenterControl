@@ -19,17 +19,32 @@ public class FornecedorDAO {
     
      public void insert(Fornecedor fornecedor) throws SQLException{
             
-            String sql = " INSERT INTO Provider(ID_Provider, Provider_Name, Provider_Email, Start_Contract, Provider_tell)"
+            String sql = " INSERT INTO Provider(ID_Provider, Provider_Name, Provider_Email, Provider_tell, Start_Contract)"
                     + " VALUES (ID_Provider,?, ?, ?, ?);";
             PreparedStatement statement = connection.prepareStatement(sql);
            statement.setString(1,fornecedor.getNome());
            statement.setString(2,fornecedor.getEmail());
-           statement.setString(3,fornecedor.getContrato());
-           statement.setString(4,fornecedor.getTelefone());
+           statement.setString(3,fornecedor.getTelefone());
+           statement.setString(4,fornecedor.getContrato());
+
               
             statement.execute(); 
 
     }
+     
+     public void update(Fornecedor fornecedor) throws SQLException{
+            
+            String sql = "UPDATE provider SET Provider_Name = ?, Provider_Email = ?, Provider_tell =? WHERE ID_Provider = ?;";
+            PreparedStatement statement = connection.prepareStatement(sql);
+              statement.setString(1,fornecedor.getNome());
+              statement.setString(2,fornecedor.getEmail());
+              statement.setString(3,fornecedor.getTelefone());
+              statement.setInt(4,fornecedor.getId());
+              statement.execute(); 
+
+    }
+     
+     
      
      public ArrayList<Fornecedor> SelecionaTodos() throws SQLException{
        
@@ -49,8 +64,9 @@ public class FornecedorDAO {
             int id = resultSet.getInt("ID_Provider");
             String nome = resultSet.getString("Provider_Name");
             String email = resultSet.getString("Provider_Email"); 
-            String contrato = resultSet.getString("Start_Contract");
             String telefone = resultSet.getString("Provider_tell");
+            String contrato = resultSet.getString("Start_Contract");
+
             
             
             Fornecedor fornecedorDados = new Fornecedor(id, nome, email, contrato, telefone);
@@ -59,14 +75,50 @@ public class FornecedorDAO {
         return fornecedores;
     }
    
-  // public Funcionario SelecionaPorId(Funcionario funcionario) throws SQLException{
-     //  String sql = "SELECT * FROM employee_login where ID_Employee = ?";
-     //  PreparedStatement statement = connection.prepareStatement(sql);
+   public Fornecedor SelecionaPorId(Fornecedor fornecedor) throws SQLException{
+       String sql = "SELECT * FROM provider where ID_Provider = ?";
+       PreparedStatement statement = connection.prepareStatement(sql);
        
-     //  statement.setInt(1,funcionario.getId());
+       statement.setInt(1,fornecedor.getId());
        
-      //  return pesquisaBanco(statement).get(0);
-  // }
+       return pesquisaBanco(statement).get(0);
+   }
+   
+   
+   
+    public ArrayList<Fornecedor> SelecionaPorNome(String nomeC) throws SQLException{
+        String test = ("%" + nomeC + "%");
+        String sql = "SELECT * FROM provider where Provider_Name LIKE '"+test+"'";
+       PreparedStatement statement;
+        statement = connection.prepareStatement(sql);
+      //  Cursor cursor = get
+         statement.execute();
+         ArrayList<Fornecedor> fornecedores = new ArrayList<>();
+        ResultSet resultSet = statement.getResultSet();
+         while(resultSet.next()){
+            
+            int id = resultSet.getInt("ID_Provider");
+            String nome = resultSet.getString("Provider_Name");
+            String email = resultSet.getString("Provider_Email");
+            String telefone = resultSet.getString("Provider_tell");
+            
+            Fornecedor fornecedorDados = new Fornecedor(id ,nome, email, telefone);
+            fornecedores.add(fornecedorDados);
+            
+         }
+            return fornecedores; 
+         }
+   
+   
+      public void delete(Fornecedor fornecedor) throws SQLException{
+            
+            String sql = "DELETE FROM provider where ID_Provider = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+              statement.setInt(1,fornecedor.getId());
+              statement.execute(); 
+
+    }
+         
    
 }
 
