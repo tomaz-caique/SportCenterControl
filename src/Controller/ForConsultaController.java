@@ -62,7 +62,7 @@ public class ForConsultaController {
         consultafor.getjTextAlterarNomeFor().setText(nome);
         consultafor.getjTextAlterarEmailFor().setText(email);
         consultafor.getjTextAlterarTelFor().setText(telefone);
-        consultafor.getjTextAlterarTelFor().setText(contrato);
+        consultafor.getjTextAlterarContratoFor().setText(contrato);
 
         consultafor.setVisible(true);
         
@@ -77,9 +77,10 @@ public class ForConsultaController {
         String nome = viewF.getjTextAlterarNomeFor().getText();
         String email = viewF.getjTextAlterarEmailFor().getText();
         String telefone = viewF.getjTextAlterarTelFor().getText();
+        String contrato = viewF.getjTextAlterarContratoFor().getText();
         int convertId = Integer.parseInt(id);
      
-        var fornecedor = new Fornecedor(convertId, nome, email, telefone);
+        var fornecedor = new Fornecedor(convertId, nome, email, telefone, contrato);
        
         try{
         Connection conexao = new Conexao().getConnection();
@@ -89,7 +90,7 @@ public class ForConsultaController {
         
         viewF.dispose();
         JOptionPane.showMessageDialog(null, "Alterado com sucesso");
-        Consulta consulta = new Consulta();
+        Consulta consulta = new Consulta(1);
         consulta.setVisible(true);
         
         }
@@ -137,7 +138,7 @@ public class ForConsultaController {
        
         viewF.dispose();
         JOptionPane.showMessageDialog(null, "Deletado com sucesso");
-        Consulta consulta = new Consulta();
+        Consulta consulta = new Consulta(1);
         consulta.setVisible(true);
         
         }

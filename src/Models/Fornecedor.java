@@ -13,20 +13,15 @@ public class Fornecedor {
     private int id;
     private String nome;
     private String email;
+   private String telefone;
     private String contrato;
-    private String telefone;
 
+    
     public Fornecedor(int id) {
         this.id = id;
     }
     
     
-    public Fornecedor(int id, String nome, String email, String contrato) {
-        this.id = id;
-        this.nome = nome;
-        this.email = email;
-        this.contrato = contrato;
-    }
 
     public Fornecedor(String nome, String email,String telefone ,String contrato) {
         this.nome = nome;

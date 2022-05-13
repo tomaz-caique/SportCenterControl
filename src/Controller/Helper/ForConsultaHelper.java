@@ -36,8 +36,8 @@ public class ForConsultaHelper {
             fornecedor.getId(),
             fornecedor.getNome(),
             fornecedor.getEmail(),
-            fornecedor.getContrato(),
             fornecedor.getTelefone(),
+            fornecedor.getContrato()
             
         });
           

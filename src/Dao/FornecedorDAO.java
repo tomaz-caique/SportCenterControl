@@ -34,12 +34,13 @@ public class FornecedorDAO {
      
      public void update(Fornecedor fornecedor) throws SQLException{
             
-            String sql = "UPDATE provider SET Provider_Name = ?, Provider_Email = ?, Provider_tell =? WHERE ID_Provider = ?;";
+            String sql = "UPDATE provider SET Provider_Name = ?, Provider_Email = ?, Provider_tell =?, Start_contract = ? WHERE ID_Provider = ?;";
             PreparedStatement statement = connection.prepareStatement(sql);
               statement.setString(1,fornecedor.getNome());
               statement.setString(2,fornecedor.getEmail());
               statement.setString(3,fornecedor.getTelefone());
-              statement.setInt(4,fornecedor.getId());
+              statement.setString(4,fornecedor.getContrato());
+              statement.setInt(5,fornecedor.getId());
               statement.execute(); 
 
     }
@@ -69,7 +70,7 @@ public class FornecedorDAO {
 
             
             
-            Fornecedor fornecedorDados = new Fornecedor(id, nome, email, contrato, telefone);
+            Fornecedor fornecedorDados = new Fornecedor(id, nome, email, telefone, contrato);
             fornecedores.add(fornecedorDados);
         }
         return fornecedores;
@@ -101,8 +102,9 @@ public class FornecedorDAO {
             String nome = resultSet.getString("Provider_Name");
             String email = resultSet.getString("Provider_Email");
             String telefone = resultSet.getString("Provider_tell");
+            String contrato = resultSet.getString("Start_Contract");
             
-            Fornecedor fornecedorDados = new Fornecedor(id ,nome, email, telefone);
+            Fornecedor fornecedorDados = new Fornecedor(id ,nome, email, telefone, contrato);
             fornecedores.add(fornecedorDados);
             
          }

@@ -6,25 +6,57 @@ import Controller.FunConsultaController;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JTabbedPane;
 import javax.swing.JTable;
+import javax.swing.event.ChangeListener;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 //import javax.swing.table.DefaultTableModel;
 
 public class Consulta extends javax.swing.JFrame {
 
-    private final FunConsultaController fcontroller;
-    private final ForConsultaController forcontroller;
+    private  FunConsultaController fcontroller;
+    private  ForConsultaController forcontroller;
     int id;
+    
+    
 
-    public Consulta() throws SQLException {
-        initComponents();
+    public Consulta(int i) throws SQLException {
+         initComponents();
         fcontroller = new FunConsultaController(this);
         forcontroller = new ForConsultaController(this);
         iniciar();
+        
+        
+        switch (i) {
+            case 0 -> jTabbedPaneConsulta.setSelectedIndex(0);
+            case 1 -> jTabbedPaneConsulta.setSelectedIndex(1);
+            case 2 -> jTabbedPaneConsulta.setSelectedIndex(2);
+            default -> jTabbedPaneConsulta.setSelectedIndex(0);
+            
+            
+            
+        }
+        
+        
+        
     }
 
+   
+         
+       
+    
 
+    public JTabbedPane getjTabbedPaneConsulta() {
+        return jTabbedPaneConsulta;
+    }
+
+    public void setjTabbedPaneConsulta(JTabbedPane jTabbedPaneConsulta) {
+        this.jTabbedPaneConsulta = jTabbedPaneConsulta;
+    }
+    
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,12 +66,12 @@ public class Consulta extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
+        jTabbedPaneConsulta = new javax.swing.JTabbedPane();
+        jPanelFuncionario = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableFuncionario = new javax.swing.JTable();
         jTextConsultaFun = new javax.swing.JTextField();
-        jPanel4 = new javax.swing.JPanel();
+        jPanelFornecedor = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableFornecedor = new javax.swing.JTable();
         jTextConsultaFor = new javax.swing.JTextField();
@@ -85,20 +117,20 @@ public class Consulta extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelFuncionarioLayout = new javax.swing.GroupLayout(jPanelFuncionario);
+        jPanelFuncionario.setLayout(jPanelFuncionarioLayout);
+        jPanelFuncionarioLayout.setHorizontalGroup(
+            jPanelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelFuncionarioLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 611, Short.MAX_VALUE)
                     .addComponent(jTextConsultaFun))
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        jPanelFuncionarioLayout.setVerticalGroup(
+            jPanelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelFuncionarioLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(jTextConsultaFun, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -106,7 +138,7 @@ public class Consulta extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Funcionario", jPanel1);
+        jTabbedPaneConsulta.addTab("Funcionario", jPanelFuncionario);
 
         jTableFornecedor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -135,20 +167,20 @@ public class Consulta extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelFornecedorLayout = new javax.swing.GroupLayout(jPanelFornecedor);
+        jPanelFornecedor.setLayout(jPanelFornecedorLayout);
+        jPanelFornecedorLayout.setHorizontalGroup(
+            jPanelFornecedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelFornecedorLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelFornecedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 611, Short.MAX_VALUE)
                     .addComponent(jTextConsultaFor))
                 .addContainerGap())
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        jPanelFornecedorLayout.setVerticalGroup(
+            jPanelFornecedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelFornecedorLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jTextConsultaFor, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -156,7 +188,7 @@ public class Consulta extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Fornecedor", jPanel4);
+        jTabbedPaneConsulta.addTab("Fornecedor", jPanelFornecedor);
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -188,21 +220,21 @@ public class Consulta extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Produto", jPanel3);
+        jTabbedPaneConsulta.addTab("Produto", jPanel3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(jTabbedPaneConsulta)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jTabbedPaneConsulta, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
-        jTabbedPane1.getAccessibleContext().setAccessibleName("teste");
-        jTabbedPane1.getAccessibleContext().setAccessibleDescription("");
+        jTabbedPaneConsulta.getAccessibleContext().setAccessibleName("tabbed");
+        jTabbedPaneConsulta.getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -331,7 +363,12 @@ public class Consulta extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextConsultaFunKeyPressed
 
     private void jTableFornecedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableFornecedorMouseClicked
-       
+             try {
+            forcontroller.carregaDados();
+            this.dispose();
+             } catch (SQLException ex) {
+            Logger.getLogger(Consulta.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jTableFornecedorMouseClicked
 
     private void jTextConsultaForKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextConsultaForKeyPressed
@@ -428,7 +465,7 @@ public class Consulta extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new Consulta().setVisible(true);
+                    new Consulta(1).setVisible(true);
                 } catch (SQLException ex) {
                     Logger.getLogger(Consulta.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -437,13 +474,13 @@ public class Consulta extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanelFornecedor;
+    private javax.swing.JPanel jPanelFuncionario;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTabbedPane jTabbedPaneConsulta;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTableFornecedor;
     private javax.swing.JTable jTableFuncionario;

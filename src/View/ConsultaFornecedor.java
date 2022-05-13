@@ -29,6 +29,14 @@ String idConsulta;
         
     }
 
+    public JTextField getjTextAlterarContratoFor() {
+        return jTextAlterarContratoFor;
+    }
+
+    public void setjTextAlterarContratoFor(JTextField jTextAlterarContratoFor) {
+        this.jTextAlterarContratoFor = jTextAlterarContratoFor;
+    }
+    
     public JTextField getjTextAlterarEmailFor() {
         return jTextAlterarEmailFor;
     }
@@ -83,7 +91,9 @@ String idConsulta;
         jLabel3 = new javax.swing.JLabel();
         ButtonExcFor = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        jTextAlterarContratoFor = new javax.swing.JTextField();
         jTextAlterarTelFor = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -116,6 +126,15 @@ String idConsulta;
         jLabel4.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         jLabel4.setText("Email");
 
+        jTextAlterarContratoFor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextAlterarContratoForActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        jLabel5.setText("Contrato");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -131,6 +150,7 @@ String idConsulta;
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jTextAlterarNomeFor, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
                                     .addComponent(jTextAlterarEmailFor)
+                                    .addComponent(jTextAlterarContratoFor, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jTextAlterarTelFor, javax.swing.GroupLayout.Alignment.TRAILING)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(112, 112, 112)
@@ -142,7 +162,8 @@ String idConsulta;
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(ButtonConFor, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(31, 31, 31)
-                                .addComponent(ButtonExcFor, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(ButtonExcFor, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel5))))
                 .addContainerGap(100, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -165,7 +186,11 @@ String idConsulta;
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jTextAlterarTelFor, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE))
-                .addGap(214, 214, 214)
+                .addGap(26, 26, 26)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextAlterarContratoFor)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(148, 148, 148)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ButtonConFor, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonExcFor, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -213,6 +238,10 @@ String idConsulta;
              Logger.getLogger(ConsultaFornecedor.class.getName()).log(Level.SEVERE, null, ex);
          }
     }//GEN-LAST:event_ButtonExcForActionPerformed
+
+    private void jTextAlterarContratoForActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextAlterarContratoForActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextAlterarContratoForActionPerformed
 
     
     
@@ -268,9 +297,11 @@ String idConsulta;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     protected final javax.swing.JLabel jLabelID = new javax.swing.JLabel();
     public javax.swing.JPanel jPanel1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField jTextAlterarContratoFor;
     private javax.swing.JTextField jTextAlterarEmailFor;
     private javax.swing.JTextField jTextAlterarNomeFor;
     private javax.swing.JTextField jTextAlterarTelFor;

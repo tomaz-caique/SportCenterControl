@@ -90,7 +90,7 @@ public class FunConsultaController {
         
         viewF.dispose();
         JOptionPane.showMessageDialog(null, "Alterado com sucesso");
-        Consulta consulta = new Consulta();
+        Consulta consulta = new Consulta(0);
         consulta.setVisible(true);
         
         }
@@ -138,7 +138,7 @@ public class FunConsultaController {
        
         viewF.dispose();
         JOptionPane.showMessageDialog(null, "Deletado com sucesso");
-        Consulta consulta = new Consulta();
+        Consulta consulta = new Consulta(0);
         consulta.setVisible(true);
         
         }
