@@ -19,44 +19,43 @@ public class Login extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+        // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+        private void initComponents() {
 
-        jButtonLogin = new javax.swing.JButton();
-        jTextSenha = new javax.swing.JTextField();
-        jTextEmail = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        background = new javax.swing.JLabel();
+                jButtonLogin = new javax.swing.JButton();
+                jTextSenha = new javax.swing.JTextField();
+                jTextEmail = new javax.swing.JTextField();
+                background = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+                setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+                getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButtonLogin.setText("Login");
-        jButtonLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonLoginActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 480, 160, -1));
-        getContentPane().add(jTextSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 430, 160, -1));
-        getContentPane().add(jTextEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 360, 160, -1));
+                jButtonLogin.setBackground(new java.awt.Color(240, 61, 7));
+                jButtonLogin.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+                jButtonLogin.setForeground(new java.awt.Color(255, 255, 255));
+                jButtonLogin.setText("ENTRAR");
+                jButtonLogin.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                jButtonLoginActionPerformed(evt);
+                        }
+                });
+                getContentPane().add(jButtonLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 456, 240, 72));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("SENHA");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 390, -1, -1));
+                jTextSenha.setBackground(new java.awt.Color(255, 255, 255));
+                jTextSenha.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+                jTextSenha.setText("senha");
+                getContentPane().add(jTextSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(498, 335, 384, 72));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("EMAIL");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 320, -1, -1));
+                jTextEmail.setBackground(new java.awt.Color(255, 255, 255));
+                jTextEmail.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+                jTextEmail.setText("login");
+                getContentPane().add(jTextEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(498, 215, 384, 72));
 
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imgs/prototipo.jpg"))); // NOI18N
-        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+                background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imgs/Login.jpeg"))); // NOI18N
+                getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        pack();
-    }// </editor-fold>//GEN-END:initComponents
+                pack();
+        }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
         try {
@@ -103,14 +102,12 @@ public class Login extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel background;
-    private javax.swing.JButton jButtonLogin;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jTextEmail;
-    private javax.swing.JTextField jTextSenha;
-    // End of variables declaration//GEN-END:variables
+        // Variables declaration - do not modify//GEN-BEGIN:variables
+        private javax.swing.JLabel background;
+        private javax.swing.JButton jButtonLogin;
+        private javax.swing.JTextField jTextEmail;
+        private javax.swing.JTextField jTextSenha;
+        // End of variables declaration//GEN-END:variables
 
 public void msg(String message) {
         JOptionPane.showMessageDialog(null, message);
