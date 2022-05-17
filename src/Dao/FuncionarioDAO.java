@@ -53,4 +53,5 @@ public class FuncionarioDAO {
        var resultSet =  statement.getResultSet();
        return resultSet.next();
     }
+    
 }
