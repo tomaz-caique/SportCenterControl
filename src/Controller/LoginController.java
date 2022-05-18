@@ -43,10 +43,9 @@ public class LoginController {
         telaMenu.setVisible(true);
         }else{
             JOptionPane.showMessageDialog(view,"Email ou Senha invalidos");
-        }
-        
-        
+        } 
     }
+    
 }
 
 

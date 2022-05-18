@@ -39,9 +39,8 @@ public class FornecedorController {
         } catch (SQLException ex) {
 
             Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
-
-           
-        }
-    
+   
+        } 
     }
+    
 }
