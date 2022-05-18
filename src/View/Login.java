@@ -2,6 +2,7 @@
 package View;
 
 import Controller.LoginController;
+import java.awt.TextField;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -65,8 +66,7 @@ public class Login extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jButtonLoginActionPerformed
-
-    /**
+           /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -102,13 +102,6 @@ public class Login extends javax.swing.JFrame {
         });
     }
 
-        // Variables declaration - do not modify//GEN-BEGIN:variables
-        private javax.swing.JLabel background;
-        private javax.swing.JButton jButtonLogin;
-        private javax.swing.JTextField jTextEmail;
-        private javax.swing.JTextField jTextSenha;
-        // End of variables declaration//GEN-END:variables
-
 public void msg(String message) {
         JOptionPane.showMessageDialog(null, message);
     }
@@ -129,6 +122,6 @@ public void msg(String message) {
         this.jTextSenha = jTextSenha;
     }
 
-  
+
 
 }
