@@ -12,6 +12,7 @@ public class FunConsultaHelper {
     private final Consulta view;
     private  int idFun;
 
+
     public int getIdFun() {
         return idFun;
     }

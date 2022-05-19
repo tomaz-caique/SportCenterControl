@@ -8,6 +8,12 @@ public class Produto {
     private int quantidade;
     private String categoria;
 
+    public Produto(String nome, int quantidade, String categoria) {
+        this.nome = nome;
+        this.quantidade = quantidade;
+        this.categoria = categoria;
+    }
+
     public Produto(int id, String nome, int quantidade, String categoria) {
         this.id = id;
         this.nome = nome;

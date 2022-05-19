@@ -170,8 +170,8 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jTextNomeFor" linkSize="16" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
                           <Component id="jTextEmailFor" linkSize="16" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
-                          <Component id="jTextTelFor" linkSize="16" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
-                          <Component id="jTextContratoFun" linkSize="16" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
+                          <Component id="jTextTelefoneFor" linkSize="16" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
+                          <Component id="jTextContratoFor" linkSize="16" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="256" max="-2" attributes="0"/>
                   </Group>
@@ -197,12 +197,12 @@
                       </Group>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jTextTelFor" linkSize="17" pref="41" max="32767" attributes="0"/>
+                          <Component id="jTextTelefoneFor" linkSize="17" pref="41" max="32767" attributes="0"/>
                           <Component id="jLabel6" min="-2" pref="38" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jTextContratoFun" linkSize="17" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextContratoFor" linkSize="17" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="83" max="32767" attributes="0"/>
@@ -244,7 +244,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="jTextEmailFor">
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextTelFor">
+            <Component class="javax.swing.JTextField" name="jTextTelefoneFor">
             </Component>
             <Component class="javax.swing.JButton" name="ButtonCadFor">
               <Properties>
@@ -262,7 +262,7 @@
                 <Property name="text" type="java.lang.String" value="Contrato"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextContratoFun">
+            <Component class="javax.swing.JTextField" name="jTextContratoFor">
               <Properties>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">

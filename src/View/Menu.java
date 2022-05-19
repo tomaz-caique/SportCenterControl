@@ -7,6 +7,7 @@ package View;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JTabbedPane;
 
 /**
  *
@@ -36,9 +37,9 @@ public class Menu extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuConFun = new javax.swing.JMenuItem();
+        jMenuConFor = new javax.swing.JMenuItem();
+        jMenuConPro = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -63,19 +64,29 @@ public class Menu extends javax.swing.JFrame {
 
         jMenu2.setText("Consultar");
 
-        jMenuItem4.setText("Funcionario");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        jMenuConFun.setText("Funcionario");
+        jMenuConFun.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                jMenuConFunActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem4);
+        jMenu2.add(jMenuConFun);
 
-        jMenuItem5.setText("Fornecedor");
-        jMenu2.add(jMenuItem5);
+        jMenuConFor.setText("Fornecedor");
+        jMenuConFor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuConForActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuConFor);
 
-        jMenuItem6.setText("Produto");
-        jMenu2.add(jMenuItem6);
+        jMenuConPro.setText("Produto");
+        jMenuConPro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuConProActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuConPro);
 
         jMenuBar2.add(jMenu2);
 
@@ -104,14 +115,35 @@ public class Menu extends javax.swing.JFrame {
                 
     }//GEN-LAST:event_jCadFunActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    private void jMenuConFunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuConFunActionPerformed
+
         try {
-            Consulta consulta = new Consulta();
+            Consulta consulta = new Consulta(0);
+               consulta.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+ 
+    }//GEN-LAST:event_jMenuConFunActionPerformed
+
+    private void jMenuConForActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuConForActionPerformed
+        try {
+            Consulta consulta = new Consulta(1);
             consulta.setVisible(true);
         } catch (SQLException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    }//GEN-LAST:event_jMenuConForActionPerformed
+
+    private void jMenuConProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuConProActionPerformed
+        try {
+            Consulta consulta = new Consulta(2);
+            consulta.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+               
+    }//GEN-LAST:event_jMenuConProActionPerformed
 
     /**
      * @param args the command line arguments
@@ -154,10 +186,10 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenu jMenuCadastro;
+    private javax.swing.JMenuItem jMenuConFor;
+    private javax.swing.JMenuItem jMenuConFun;
+    private javax.swing.JMenuItem jMenuConPro;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
     // End of variables declaration//GEN-END:variables
 }
