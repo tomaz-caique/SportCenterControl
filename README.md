@@ -1,2 +1,2 @@
 # SportCenterControl
-Sistema de estoque para uma loja de esportes.
+Estoque inteligente para lojas de artigos esportivos.
